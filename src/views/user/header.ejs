@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title><%- header['title'] ? header['title'] : '' %></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel='icon' type='image/x-icon' href="<%= process.env.NODE_URL+ 'assets/images/favicon.ico'%>" />
+    <link rel="stylesheet" href="<%= process.env.NODE_URL+ 'assets/css/common.min.css'%>" />
+    <input type="hidden" id="base_url" value="<%= process.env.NODE_URL %>">
+</head>
+
+<body>
+    <div class="toggle-body d-block d-lg-none"></div>
+
+    <div
+        class="loader position-fixed align-items-center justify-content-center top-0 start-0 h-100 w-100 gap-2 bg-white">
+        <span class="rounded-3 p-2"></span>
+        <span class="rounded-3 p-2"></span>
+        <span class="rounded-3 p-2"></span>
+    </div>
+
+    <main class="d-flex main-content">
+        <%- include('sidebar.ejs') -%>
+            <div class="page-content w-100">
+
+                <header
+                    class="d-flex align-items-center justify-content-between mb-2 position-sticky top-0 bg-white z-3">
+                    <div class="d-flex gap-3 align-items-center">
+                        <div class="d-flex menu-bars align-items-center justify-content-center cursor-pointer rounded-2"
+                            id="sidebarToggle">
+                            <i class="fa-solid fa-bars"></i>
+                        </div>
+                        <% %>
+                            <div class="bg-light px-2 rounded-2 d-none d-sm-flex align-items-center"
+                                style="height: 32px;">
+
+                                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                                        <% if (header.pageLink && header.pageLink.length > 0) { %>
+                                            <ol class="breadcrumb m-0 fs-12">
+                                                <% for (const link of header.pageLink) { %>
+                                                    <% if (link.Page === '' || link.Page2 === '') { %>
+                                                        <% break %>
+                                                    <% } %>
+                                                    <li class="breadcrumb-item">
+                                                        <a href="/dashboard" class="fw-medium text-black">
+                                                            <%= link.Home %>
+                                                        </a>
+                                                        <a href="#" class="fw-medium text-black">
+                                                            <%= link.Page %>
+                                                        </a>
+                                                        <span class="fw-medium"><%= link.Page2 %></span>
+                                                    </li>
+                                                <% } %>
+                                            </ol>
+                                        <% } else { %>
+                                            <ol class="breadcrumb m-0 fs-12">
+                                                <li class="breadcrumb-item"><a href="#" class="fw-medium text-black">Home</a></li>
+                                                <li class="breadcrumb-item"><a href="#" class="fw-medium text-black">Page</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page" class="fw-medium">Page 2</li>
+                                            </ol>
+                                        <% } %>
+                                </nav>
+                            </div>
+                            <!-- <div class="common-search position-relative rounded-3 fs-14">
+                    <i
+                        class="fa-solid fa-magnifying-glass position-absolute top-0 bottom-0 my-auto start-0 ms-3 fs-10"></i>
+                    <input type="text" class="border-0 bg-transparent search-input p-0 w-100 ms-1"
+                        placeholder="Search">
+                    <div
+                        class="autosuggestion position-absolute w-100 bg-white p-2 rounded-2 border shadow mt-3 start-0">
+                        <p class="m-0 px-2 py-1 rounded-1">Lorem ipsum dolor sit amet</p>
+                        <p class="m-0 px-2 py-1 rounded-1">consectetur adipiscing elit</p>
+                        <p class="m-0 px-2 py-1 rounded-1">Aenean euismod elementum nisi quis</p>
+                    </div>
+                </div> -->
+                    </div>
+                    <ul class="list-unstyled ms-auto m-0 p-0 d-flex align-items-center gap-2 right-nav-bar">
+                <li>
+                    <div class="dropdown d-flex">
+                        <!-- <a class="cursor-pointer position-relative" data-bs-toggle="dropdown" aria-expanded="false" 
+                        data-bs-auto-close="outside"><i
+                                class="fa-regular fa-bell" id="notifications-btn"></i>
+                                    <span class="position-absolute top-0 end-0 bg-danger rounded-1 m-1 p-1" id="notification-dot"></span>
+                            </a> -->
+                        <div class="dropdown-menu notification-panel pb-0">
+                            <div class="d-flex align-items-center justify-content-between gap-2 p-2">
+                                <span class="h6 m-0">Notifications</span>
+                                <span class="fw-bold primary-color fs-12 cursor-pointer lh-1 p-1 px-2 border rounded-2" id="marks-all-read">Mark As All Read</span>
+                            </div>  
+                            <hr class="mt-1 mb-2">
+                            <ul class="list-unstyled" id="notifications-lists">
+
+                            </ul>
+                            <div class="text-primary w-100 text-center border-top py-2 cursor-pointer fw-bold fs-12 text-uppercase mt-2 rounded-0 bg-transparent" id="view-more"> View more</div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown d-flex">
+                        <a class="cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false"><img
+                                src="<%= process.env.NODE_URL %>assets/images/avatar.svg" alt="" class="rounded-circle object-fit-cover"></a>
+                        <ul class="dropdown-menu">
+                            <li class="profile-info"><%= header.name %> <span><%= header.email %></span></li>
+                            <hr class="my-2" style="border-color: #D8DEE4;opacity: 1;">
+                            <!-- <li class="dropdown-li"><a class="dropdown-item" href="#">Profile <i
+                                        class="fa-solid fa-user ms-auto"></i></a></li> -->
+                            <li class="dropdown-li"><a class="dropdown-item" id="logout" href="<%= process.env.NODE_URL %>user/logout">Logout <i
+                                        class="fa-solid fa-arrow-right-from-bracket ms-auto"></i></a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+                </header>

@@ -1,0 +1,93 @@
+<%- include('header.ejs') -%>
+<% 
+function getValueByName(name) { 
+    for (var i=0; i < body.data.length; i++) { 
+        if (body.data[i].name===name) {
+            return body.data[i].val; 
+        } 
+    } 
+    return '' ; 
+} %>
+    <div class="content-area pb-5">
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-4">
+            <h1 class="page-title m-0 fw-bold text-capitalize">Settings</h1>
+        </div>
+        <div class="setting-details mt-4">
+            <div class="tab-panel">
+                <ul class="nav nav-underline row-gap-1 column-gap-4 mb-4" id="settingDetails" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button type="button" id="change-password-tab" data-bs-toggle="tab" data-bs-target="#second-tab-pane"
+                            role="tab" aria-controls="second-tab-pane" aria-selected="false" class="nav-link"
+                            tabindex="-1">Change Password
+                        </button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="settingDetailsContent">
+                    <!-- secound tab -->
+                    <div class="tab-pane fade" id="second-tab-pane" role="tabpanel" aria-labelledby="" tabindex="0">
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-8 col-lg-6 col-xxl-4">
+                                <div class="card bg-light p-3">
+                                    <div class="field-group mb-3">
+                                        <label for="old_password" class="form-label">Old Password<span
+                                                class="text-danger">*</span></label>
+                                        <div class="position-relative">
+                                            <input type="password" class="form-control" id="old_password"
+                                                placeholder="Enter password" required autocomplete="old_password">
+                                            <div
+                                                class="password-eye position-absolute top-0 bottom-0 end-0 me-2 m-auto d-flex justify-content-center align-items-center cursor-pointer fs-14">
+                                                <i class="fa-solid fa-eye-slash" id="Old_password_eye"></i>
+                                       
+                                            </div>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Error message!
+                                        </div>
+                                    </div>
+                                    <div class="field-group mb-3">
+                                        <label for="new_password" class="form-label">New Password<span
+                                                class="text-danger">*</span></label>
+                                        <div class="position-relative">
+                                            <input type="password" class="form-control" id="new_password"
+                                                placeholder="Enter password" required autocomplete="new_password">
+                                            <div
+                                                class="password-eye position-absolute top-0 bottom-0 end-0 me-2 m-auto d-flex justify-content-center align-items-center cursor-pointer fs-14">
+                                                <i class="fa-solid fa-eye-slash" id="New_password_eye"></i>
+                                            </div>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Error message!
+                                        </div>
+                                    </div>
+                                    <div class="field-group mb-3">
+                                        <label for="confirm_password" class="form-label">Confirm Password<span
+                                                class="text-danger">*</span></label>
+                                        <div class="position-relative">
+                                            <input type="password" class="form-control" id="confirm_password"
+                                                placeholder="Enter password" required autocomplete="confirm_password">
+                                            <div
+                                                class="password-eye position-absolute top-0 bottom-0 end-0 me-2 m-auto d-flex justify-content-center align-items-center cursor-pointer fs-14">
+                                                <i class="fa-solid fa-eye-slash" id="Confirm_password_eye"></i>
+                                            </div>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Error message!
+                                        </div>
+                                    </div>
+                                    <div class="text-end">
+                                        <button type="button" class="btn btn-primary"
+                                            id="change_password_btn">Change Password <span class="spinner-border spinner-border-sm d-none" id="change_password_btn-spinner"></span></button>
+                                        <button type="button" class="btn btn-outline">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('footer.ejs') -%>
+        

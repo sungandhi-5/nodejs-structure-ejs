@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        <%= header.title %>
+    </title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel='icon' type='image/x-icon' href="<%= process.env.NODE_URL+ 'assets/images/favicon.ico'%>" />
+    <link rel="stylesheet" href="<%= process.env.NODE_URL+ 'assets/css/common.min.css' %>" />
+    <link rel="shortcut icon" href="<%= process.env.NODE_URL+ 'assets/images/favicon.ico' %>" type="images/x-icon" />
+
+</head>
+
+<body>
+
+    <div
+        class="loader position-fixed align-items-center justify-content-center top-0 start-0 h-100 w-100 gap-2 bg-white">
+        <span class="rounded-3 p-2"></span>
+        <span class="rounded-3 p-2"></span>
+        <span class="rounded-3 p-2"></span>
+    </div>
+        <main class="d-flex justify-content-center align-items-center vh-100">
+            <div class="card log-in">
+                <div class="text-center mb-4">
+                    <h2 class="fw-bolder text-capitalize fs-2">Node Bootstrap</h2>
+                    <h6 class="fw-medium h6 opacity-50">Sign up</h6>
+                </div>
+                <form class="needs-validation" id="signup-form" action="<%= process.env.NODE_URL + 'signup' %>" method="post"  novalidate>
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <div class="field-group">
+                                <label for="username" class="form-label">Username<span
+                                        class="text-danger">*</span></label>
+                                <input type="email" class="form-control" name="username" id="username"
+                                    placeholder="Enter username" required>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="field-group">
+                                <label for="email" class="form-label">Email Address<span
+                                        class="text-danger">*</span></label>
+                                <input type="email" class="form-control" name="email" id="email"
+                                    placeholder="Enter email address" required>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="field-group">
+                                <label for="password" class="form-label">Password<span
+                                        class="text-danger">*</span></label>
+                                <div class="position-relative">
+                                    <input type="password" class="form-control" name="password" id="password"
+                                        placeholder="Enter password" required>
+                                    <div
+                                        class="password-eye position-absolute top-0 bottom-0 end-0 me-2 m-auto d-flex justify-content-center align-items-center cursor-pointer fs-14">
+                                        <!-- <i class="fa-solid fa-eye" id="eye"></i> -->
+                                        <i class="fa-solid fa-eye-slash" id="eye"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="field-group">
+                                <label for="password" class="form-label">Confirm Password<span
+                                        class="text-danger">*</span></label>
+                                <div class="position-relative">
+                                    <input type="password" class="form-control" name="confirm_password" id="confirm_password"
+                                        placeholder="Enter confirm password" required>
+                                    <div
+                                        class="password-eye position-absolute top-0 bottom-0 end-0 me-2 m-auto d-flex justify-content-center align-items-center cursor-pointer fs-14">
+                                        <!-- <i class="fa-solid fa-eye" id="eye"></i> -->
+                                        <i class="fa-solid fa-eye-slash" id="eye"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary w-100 mt-3 " id="submitButton">Submit <span class="spinner-border spinner-border-sm d-none" id="submitButton-spinner"></span></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <div class="toast-container position-fixed bottom-0 start-0 end-0 m-auto p-3"></div>
+
+</body>
+
+<script src="<%= process.env.NODE_URL + 'assets/js/jquery.min.js'%>"></script>
+<script src="<%= process.env.NODE_URL + 'assets/js/jquery.form.min.js'%>"></script>
+<script src="<%= process.env.NODE_URL + 'assets/js/bootstrap.min.js'%>"></script>
+<script src="<%= process.env.NODE_URL + 'assets/js/common.min.js'%>"></script>
+<script src="<%= process.env.NODE_URL +  'assets/js/user/signup.min.js'%>"></script>
+
+</html>

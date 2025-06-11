@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<nav class="navbar-vertical bg-white d-flex justify-content-start flex-column top-0 vh-100 position-sticky" id="navbar">
+        <div class="sidebar-close d-inline-block d-lg-none">
+                <i class="fa-solid fa-xmark rounded-2 cursor-pointer d-flex justify-content-center align-items-center"
+                        id="close-navbar"></i>
+        </div>
+
+        <div class="company-user-info">
+                <div class="navbar-brand text-center cursor-pointer d-flex align-items-center gap-2 rounded-3 p-2">
+                        <div class="company-logo d-flex justify-content-center align-items-center rounded-2 bg-white">
+                                <img src="<%= process.env.NODE_URL+ 'assets/images/favicon.ico'%>" alt="company"></div>
+                        Node Bootstrap
+                </div>
+        </div>
+
+        <div class="menu-items d-flex flex-column gap-5 position-relative accordion" id="sidenavAccordion">
+                <ul class="navbar-nav flex-column">
+                        <li class="nav-item" id="dashboard">
+                                <a href="<%= process.env.NODE_URL + 'dashboard'%>">Dashboard</a>
+                        </li>
+                </ul>
+        </div>
+</nav>
+
+</html>
